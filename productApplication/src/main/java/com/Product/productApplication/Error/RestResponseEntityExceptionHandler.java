@@ -21,7 +21,7 @@ public class RestResponseEntityExceptionHandler {
 
     @ExceptionHandler(InvalidInputException.class)
     @ResponseBody
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorMessage invalidInputExceptionHandler(InvalidInputException e){
         return new ErrorMessage(HttpStatus.NOT_FOUND, e.getMessage());
     }
