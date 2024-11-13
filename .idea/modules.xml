@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/productApplication.iml" filepath="$PROJECT_DIR$/.idea/productApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/productApplication/productApplication.iml" filepath="$PROJECT_DIR$/productApplication/productApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/springboot-product.iml" filepath="$PROJECT_DIR$/.idea/springboot-product.iml" />
     </modules>
   </component>
 </project>
