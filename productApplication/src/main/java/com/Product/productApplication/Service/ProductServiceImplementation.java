@@ -2,6 +2,8 @@ package com.Product.productApplication.Service;
 
 
 import com.Product.productApplication.Entity.ProductEntity;
+import com.Product.productApplication.Error.InvalidInputException;
+import com.Product.productApplication.Error.ProductNotFoundException;
 import com.Product.productApplication.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +27,7 @@ public class ProductServiceImplementation implements ProductService{
 
 	public ProductEntity getProductById(String id){
 		return pRepo.findById(id)
-				.orElseThrow(() -> new RuntimeException("Unable to find Product by Id: " + id));
+				.orElseThrow(() -> new ProductNotFoundException("Unable to find Product by Id: " + id));
 	}
 
 	public ProductEntity createProduct(ProductEntity p){
@@ -34,7 +36,7 @@ public class ProductServiceImplementation implements ProductService{
 	}
 
 	public ProductEntity updateProductById(String id, ProductEntity p){
-		ProductEntity p1 = pRepo.findById(id).orElseThrow(() -> new RuntimeException("No product with the id: " + id));
+		ProductEntity p1 = pRepo.findById(id).orElseThrow(() -> new InvalidInputException("No product with the id: " + id));
 		p1.setName(p.getName());
 		p1.setCategory(p.getCategory());
 		p1.setPrice(p.getPrice());
