@@ -1,10 +1,13 @@
 package com.Product.productApplication.Service;
 
 
+import com.Product.productApplication.Controller.ProductController;
 import com.Product.productApplication.Entity.ProductEntity;
 import com.Product.productApplication.Error.InvalidInputException;
 import com.Product.productApplication.Error.ProductNotFoundException;
 import com.Product.productApplication.Repository.ProductRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +17,9 @@ import java.util.UUID;
 @Service
 public class ProductServiceImplementation implements ProductService{
 	private final ProductRepository pRepo;
+
+	private static final Logger logger = LoggerFactory.getLogger(ProductServiceImplementation.class);
+
 
 	@Autowired
 	public ProductServiceImplementation(ProductRepository pRepo){
@@ -32,6 +38,7 @@ public class ProductServiceImplementation implements ProductService{
 
 	public ProductEntity createProduct(ProductEntity p){
 		p.setId(UUID.randomUUID().toString());
+		logger.info("Created withID{}",p.getId());
 		return pRepo.save(p);
 	}
 
