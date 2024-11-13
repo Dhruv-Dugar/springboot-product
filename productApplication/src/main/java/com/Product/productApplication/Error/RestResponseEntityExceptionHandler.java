@@ -23,7 +23,7 @@ public class RestResponseEntityExceptionHandler {
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorMessage invalidInputExceptionHandler(InvalidInputException e){
-        return new ErrorMessage(HttpStatus.NOT_FOUND, e.getMessage());
+        return new ErrorMessage(HttpStatus.BAD_REQUEST, e.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
