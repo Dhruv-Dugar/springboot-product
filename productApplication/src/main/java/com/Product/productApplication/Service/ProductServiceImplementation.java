@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ProductServiceImplementation implements ProductService{
@@ -28,6 +29,7 @@ public class ProductServiceImplementation implements ProductService{
 	}
 
 	public ProductEntity createProduct(ProductEntity p){
+		p.setId(UUID.randomUUID().toString());
 		return pRepo.save(p);
 	}
 
