@@ -37,7 +37,7 @@ public class ProductServiceImplementation implements ProductService{
 	}
 
 	public ProductEntity createProduct(ProductEntity p){
-		p.setId(UUID.randomUUID().toString());
+//		p.setId(UUID.randomUUID().toString());
 		logger.debug("Created withID{}",p.getId());
 		return pRepo.save(p);
 	}

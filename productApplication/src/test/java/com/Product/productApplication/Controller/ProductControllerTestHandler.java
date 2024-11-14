@@ -52,7 +52,7 @@ public class ProductControllerTestHandler {
 
 		when(pService.getProductById("1234")).thenReturn(product);
 
-		mockMvc.perform(get("/api/v1/products/100")
+		mockMvc.perform(get("/api/v1/product/100")
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$.name")
